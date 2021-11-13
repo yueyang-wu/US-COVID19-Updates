@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">COVID19</string>
+    <string name="app_name">U.S. COVID19 Updates</string>
     <string name="homepage_tip_image_left">Mask</string>
     <string name="homepage_tip_image_middle">Social Distance</string>
     <string name="homepage_tip_image_right">Sanitization</string>
