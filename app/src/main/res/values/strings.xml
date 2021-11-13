@@ -3,4 +3,6 @@
     <string name="homepage_tip_image_left">Mask</string>
     <string name="homepage_tip_image_middle">Social Distance</string>
     <string name="homepage_tip_image_right">Sanitization</string>
+
+    <string name="homepage_button1">See Statistics</string>
 </resources>
