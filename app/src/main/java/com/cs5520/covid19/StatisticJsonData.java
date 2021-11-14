@@ -8,7 +8,7 @@ import org.json.JSONArray;
  * Should be initialized in HomePage.onCreate()
  */
 public class StatisticJsonData {
-    private static String apiKey = "8ab097fc87734505af67bba31f012eb8";
+    private static final String apiKey = "8ab097fc87734505af67bba31f012eb8";
     public static final String countyApiUrlString =
             "https://api.covidactnow.org/v2/counties.json?apiKey=" + apiKey;
     public static final String stateApiUrlString =
