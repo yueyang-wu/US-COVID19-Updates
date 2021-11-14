@@ -5,4 +5,6 @@
     <string name="homepage_tip_image_right">Sanitization</string>
 
     <string name="homepage_button1">See Statistics</string>
+    <string name="homepage_toast_update_success">Update Succeeded!</string>
+    <string name="homepage_toast_update_failure">Update Failed!</string>
 </resources>
