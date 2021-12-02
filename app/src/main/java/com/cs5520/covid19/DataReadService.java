@@ -12,7 +12,7 @@ import java.util.HashMap;
  * Case2: if both state and county are selected, revoke recordStateJSONObj(String state, String county)
  *
  * After obtained the Json object, further sparse the data from JSON object and store in stateMap or countyMap accordingly.
- * Get needed data from the hashmap as needed.
+ * Get needed data from the hashmap as needed..
  */
 
 public class DataReadService {
