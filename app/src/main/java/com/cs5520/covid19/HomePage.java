@@ -41,7 +41,6 @@ public class HomePage extends AppCompatActivity {
                 char[] chars = new char[1024];
                 while ((read = reader.read(chars)) != -1)
                     buffer.append(chars, 0, read);
-
                 return buffer.toString();
             } finally {
                 if (reader != null)

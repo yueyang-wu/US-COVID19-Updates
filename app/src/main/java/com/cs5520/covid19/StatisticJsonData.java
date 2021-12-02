@@ -1,6 +1,9 @@
 package com.cs5520.covid19;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.net.HttpURLConnection;
 
 /**
  * JSONArray objects which holds the up-to-date data from Covid data provider.
@@ -16,4 +19,5 @@ public class StatisticJsonData {
 
     public static JSONArray stateJsonArray = null;
     public static JSONArray countyJsonArray = null;
+
 }
