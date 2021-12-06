@@ -1,7 +1,10 @@
 package com.cs5520.covid19;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +16,8 @@ import java.io.InputStreamReader;
 import java.net.URL;
 
 public class HomePage extends AppCompatActivity {
+    Button btn_vaccinationFinder;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +26,15 @@ public class HomePage extends AppCompatActivity {
 
         // Initialize StatisticJsonData
         new requestJsonCovidStatistics().execute();
+
+        // set vaccination_finder button to open VaccinationFinder activity
+        btn_vaccinationFinder = (Button) findViewById(R.id.vaccination_finder);
+        btn_vaccinationFinder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomePage.this, VaccinationFinder.class));
+            }
+        });
     }
 
     private class requestJsonCovidStatistics extends AsyncTask<String, String, JSONArray[]> {
@@ -59,12 +73,15 @@ public class HomePage extends AppCompatActivity {
         protected JSONArray[] doInBackground(String... strings) {
             String stateJsonStringFromUrl = "";
             String countyJsonStringFromUrl = "";
-            JSONArray[] result = new JSONArray[]{null, null};
+//            String vaccinationProviderJsonStringFromUrl = "";
+            JSONArray[] result = new JSONArray[]{null, null, null};
             try {
                 stateJsonStringFromUrl = this.readUrl(StatisticJsonData.stateApiUrlString);
                 countyJsonStringFromUrl = this.readUrl(StatisticJsonData.countyApiUrlString);
+//                vaccinationProviderJsonStringFromUrl = this.readUrl(StatisticJsonData.vaccinationProviderApiUrlString);
                 result[0] = new JSONArray(stateJsonStringFromUrl);
                 result[1] = new JSONArray(countyJsonStringFromUrl);
+//                result[2] = new JSONArray(vaccinationProviderJsonStringFromUrl);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -79,19 +96,35 @@ public class HomePage extends AppCompatActivity {
          */
         @Override
         protected void onPostExecute(JSONArray[] jsonArrays) {
+            // validate if covid data acquired successfully
             if (jsonArrays[0] != null && jsonArrays[1] != null) {
                 StatisticJsonData.stateJsonArray = jsonArrays[0];
                 StatisticJsonData.countyJsonArray = jsonArrays[1];
                 Toast.makeText(
                         getApplicationContext(),
-                        getApplicationContext().getString(R.string.homepage_toast_update_success),
+                        getApplicationContext().getString(R.string.homepage_covid_info_update_success),
                         Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(
                         getApplicationContext(),
-                        getApplicationContext().getString(R.string.homepage_toast_update_failure),
+                        getApplicationContext().getString(R.string.homepage_covid_info_update_failure),
                         Toast.LENGTH_SHORT).show();
             }
+
+            // leave it here for future updates
+            // validate if vaccination provider data acquired successfully
+//            if (jsonArrays[2] != null) {
+//                StatisticJsonData.providerLocation = jsonArrays[2];
+//                Toast.makeText(
+//                        getApplicationContext(),
+//                        getApplicationContext().getString(R.string.homepage_vaccination_info_update_success),
+//                        Toast.LENGTH_SHORT).show();
+//            } else {
+//                Toast.makeText(
+//                        getApplicationContext(),
+//                        getApplicationContext().getString(R.string.homepage_vaccination_info_update_failure),
+//                        Toast.LENGTH_SHORT).show();
+//            }
         }
     }
 }
