@@ -5,6 +5,8 @@
     <string name="homepage_tip_image_right">Sanitization</string>
 
     <string name="homepage_button1">See Statistics</string>
-    <string name="homepage_toast_update_success">Update Succeeded!</string>
-    <string name="homepage_toast_update_failure">Update Failed!</string>
+    <string name="homepage_covid_info_update_success">Covid Info Update Succeeded!</string>
+    <string name="homepage_covid_info_update_failure">Covid Info Update Failed!</string>
+    <string name="homepage_vaccination_info_update_success">Vaccination Info Update Succeeded!</string>
+    <string name="homepage_vaccination_info_update_failure">Vaccination Info Update Failed!</string>
 </resources>
