@@ -73,15 +73,15 @@ public class HomePage extends AppCompatActivity {
         protected JSONArray[] doInBackground(String... strings) {
             String stateJsonStringFromUrl = "";
             String countyJsonStringFromUrl = "";
-//            String vaccinationProviderJsonStringFromUrl = "";
+            String vaccinationProviderJsonStringFromUrl = "";
             JSONArray[] result = new JSONArray[]{null, null, null};
             try {
                 stateJsonStringFromUrl = this.readUrl(StatisticJsonData.stateApiUrlString);
                 countyJsonStringFromUrl = this.readUrl(StatisticJsonData.countyApiUrlString);
-//                vaccinationProviderJsonStringFromUrl = this.readUrl(StatisticJsonData.vaccinationProviderApiUrlString);
+                vaccinationProviderJsonStringFromUrl = this.readUrl(StatisticJsonData.vaccinationProviderApiUrlString);
                 result[0] = new JSONArray(stateJsonStringFromUrl);
                 result[1] = new JSONArray(countyJsonStringFromUrl);
-//                result[2] = new JSONArray(vaccinationProviderJsonStringFromUrl);
+                result[2] = new JSONArray(vaccinationProviderJsonStringFromUrl);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -111,20 +111,19 @@ public class HomePage extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
 
-            // leave it here for future updates
             // validate if vaccination provider data acquired successfully
-//            if (jsonArrays[2] != null) {
-//                StatisticJsonData.providerLocation = jsonArrays[2];
-//                Toast.makeText(
-//                        getApplicationContext(),
-//                        getApplicationContext().getString(R.string.homepage_vaccination_info_update_success),
-//                        Toast.LENGTH_SHORT).show();
-//            } else {
-//                Toast.makeText(
-//                        getApplicationContext(),
-//                        getApplicationContext().getString(R.string.homepage_vaccination_info_update_failure),
-//                        Toast.LENGTH_SHORT).show();
-//            }
+            if (jsonArrays[2] != null) {
+                StatisticJsonData.providerLocation = jsonArrays[2];
+                Toast.makeText(
+                        getApplicationContext(),
+                        getApplicationContext().getString(R.string.homepage_vaccination_info_update_success),
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(
+                        getApplicationContext(),
+                        getApplicationContext().getString(R.string.homepage_vaccination_info_update_failure),
+                        Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }
