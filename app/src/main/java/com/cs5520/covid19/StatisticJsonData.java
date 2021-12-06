@@ -1,6 +1,11 @@
 package com.cs5520.covid19;
 
 import org.json.JSONArray;
+
+import org.json.JSONObject;
+
+import java.net.HttpURLConnection;
+
 import org.json.JSONException;
 
 /**
@@ -20,11 +25,5 @@ public class StatisticJsonData {
     public static JSONArray stateJsonArray = null;
     public static JSONArray countyJsonArray = null;
     public static JSONArray providerLocation = null;
-//    static {
-//        try {
-//            providerLocation = new JSONArray();
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//    }
+
 }

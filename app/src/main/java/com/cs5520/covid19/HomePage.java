@@ -4,20 +4,22 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Button;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import org.json.JSONArray;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 
-public class HomePage extends AppCompatActivity {
-    Button btn_vaccinationFinder;
 
+public class HomePage extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+    String[] stateNames={"CA","AK","FL","NJ","OR"};
+    String[] countyNames={"Alameda","Santa Clara","County1","County2","County3"};
+    Button btn_vaccinationFinder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,25 @@ public class HomePage extends AppCompatActivity {
         // Initialize StatisticJsonData
         new requestJsonCovidStatistics().execute();
 
+
+        //Spinner display
+        Spinner spinState = (Spinner) findViewById(R.id.state);
+        spinState.setOnItemSelectedListener(this);
+        //Creating the ArrayAdapter instance having the bank name list
+        ArrayAdapter aaState = new ArrayAdapter(this,android.R.layout.simple_spinner_item,stateNames);
+        aaState.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //Setting the ArrayAdapter data on the Spinner
+        spinState.setAdapter(aaState);
+
+        Spinner spinCounty = (Spinner) findViewById(R.id.county);
+        spinCounty.setOnItemSelectedListener(this);
+        //Creating the ArrayAdapter instance having the bank name list
+        ArrayAdapter aaCounty = new ArrayAdapter(this,android.R.layout.simple_spinner_item,countyNames);
+        aaCounty.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //Setting the ArrayAdapter data on the Spinner
+        spinCounty.setAdapter(aaCounty);
+
+
         // set vaccination_finder button to open VaccinationFinder activity
         btn_vaccinationFinder = (Button) findViewById(R.id.vaccination_finder);
         btn_vaccinationFinder.setOnClickListener(new View.OnClickListener() {
@@ -35,7 +56,23 @@ public class HomePage extends AppCompatActivity {
                 startActivity(new Intent(HomePage.this, VaccinationFinder.class));
             }
         });
+
     }
+
+    //Performing action onItemSelected and onNothing selected
+    @Override
+    public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
+        Toast.makeText(getApplicationContext(), stateNames[position], Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> arg0) {
+// TODO Auto-generated method stub
+
+    }
+
+
+
 
     private class requestJsonCovidStatistics extends AsyncTask<String, String, JSONArray[]> {
         /**
@@ -55,7 +92,6 @@ public class HomePage extends AppCompatActivity {
                 char[] chars = new char[1024];
                 while ((read = reader.read(chars)) != -1)
                     buffer.append(chars, 0, read);
-
                 return buffer.toString();
             } finally {
                 if (reader != null)
