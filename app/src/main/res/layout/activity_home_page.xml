@@ -93,4 +93,16 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/homepage_tip_text_middle" />
+
+    <Button
+        android:id="@+id/vaccination_finder"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:contentDescription="Vaccination Finder"
+        android:text="Vaccination Finder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homepage_tip_text_middle" />
 </androidx.constraintlayout.widget.ConstraintLayout>
