@@ -187,17 +187,4 @@ public class DataReadService {
             throw  new NullPointerException();
         }
     }
-
-    public static void main(String[] args) {
-        try {
-            recordStateJSONObj("AK");
-            recordStateData();
-            int newStateCase = getStateNewCases();
-            System.out.println(newStateCase);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-    }
-
 }
