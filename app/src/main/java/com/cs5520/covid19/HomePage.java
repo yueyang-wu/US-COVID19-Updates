@@ -136,6 +136,7 @@ public class HomePage extends AppCompatActivity implements AdapterView.OnItemSel
             if (jsonArrays[0] != null && jsonArrays[1] != null) {
                 StatisticJsonData.stateJsonArray = jsonArrays[0];
                 StatisticJsonData.countyJsonArray = jsonArrays[1];
+                StatisticJsonData.parseStateToCountyMap();
                 Toast.makeText(
                         getApplicationContext(),
                         getApplicationContext().getString(R.string.homepage_covid_info_update_success),
