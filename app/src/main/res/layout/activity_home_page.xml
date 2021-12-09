@@ -84,7 +84,7 @@
         app:layout_constraintTop_toBottomOf="@+id/homepage_tip_image_right" />
 
     <Button
-        android:id="@+id/homepage_button1"
+        android:id="@+id/homepage_seeStatistics"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"

@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_home_page.xml" value="0.21388888888888888" />
+        <entry key="app/src/main/res/layout/activity_statistic_display.xml" value="0.2682291666666667" />
+        <entry key="app/src/main/res/layout/activity_vaccination_finder.xml" value="0.28229166666666666" />
       </map>
     </option>
   </component>
