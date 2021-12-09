@@ -20,6 +20,7 @@ public class HomePage extends AppCompatActivity implements AdapterView.OnItemSel
     String[] stateNames={"CA","AK","FL","NJ","OR"};
     String[] countyNames={"Alameda","Santa Clara","County1","County2","County3"};
     Button btn_vaccinationFinder;
+    private Button btn_statisticDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +57,20 @@ public class HomePage extends AppCompatActivity implements AdapterView.OnItemSel
                 startActivity(new Intent(HomePage.this, VaccinationFinder.class));
             }
         });
+        // set Statistics button on homepage to direct to information display
+        btn_statisticDisplay = (Button) findViewById(R.id.homepage_seeStatistics);
+        btn_statisticDisplay.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                openStatisticDisplay();
+            }
+        });
 
+    }
+
+    public void openStatisticDisplay(){
+        Intent intent = new Intent(this, StatisticDisplay.class);
+        startActivity(intent);
     }
 
     //Performing action onItemSelected and onNothing selected
