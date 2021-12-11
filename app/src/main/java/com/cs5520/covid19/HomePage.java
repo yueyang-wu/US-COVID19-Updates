@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Spinner;
 import android.widget.Button;
 import android.widget.Toast;
@@ -31,22 +32,22 @@ public class HomePage extends AppCompatActivity implements AdapterView.OnItemSel
         new requestJsonCovidStatistics().execute();
 
 
-        //Spinner display
-        Spinner spinState = (Spinner) findViewById(R.id.state);
-        spinState.setOnItemSelectedListener(this);
-        //Creating the ArrayAdapter instance having the bank name list
-        ArrayAdapter aaState = new ArrayAdapter(this,android.R.layout.simple_spinner_item,stateNames);
-        aaState.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //Setting the ArrayAdapter data on the Spinner
-        spinState.setAdapter(aaState);
-
-        Spinner spinCounty = (Spinner) findViewById(R.id.county);
-        spinCounty.setOnItemSelectedListener(this);
-        //Creating the ArrayAdapter instance having the bank name list
-        ArrayAdapter aaCounty = new ArrayAdapter(this,android.R.layout.simple_spinner_item,countyNames);
-        aaCounty.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //Setting the ArrayAdapter data on the Spinner
-        spinCounty.setAdapter(aaCounty);
+//        //Spinner display
+//        Spinner spinState = (Spinner) findViewById(R.id.state);
+//        spinState.setOnItemSelectedListener(this);
+//        //Creating the ArrayAdapter instance having the bank name list
+//        ArrayAdapter aaState = new ArrayAdapter(this,android.R.layout.simple_spinner_item,stateNames);
+//        aaState.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        //Setting the ArrayAdapter data on the Spinner
+//        spinState.setAdapter(aaState);
+//
+//        Spinner spinCounty = (Spinner) findViewById(R.id.county);
+//        spinCounty.setOnItemSelectedListener(this);
+//        //Creating the ArrayAdapter instance having the bank name list
+//        ArrayAdapter aaCounty = new ArrayAdapter(this,android.R.layout.simple_spinner_item,countyNames);
+//        aaCounty.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        //Setting the ArrayAdapter data on the Spinner
+//        spinCounty.setAdapter(aaCounty);
 
 
         // set vaccination_finder button to open VaccinationFinder activity
@@ -67,6 +68,12 @@ public class HomePage extends AppCompatActivity implements AdapterView.OnItemSel
         });
 
     }
+
+//    private void initSpinner(){
+//        final AutoCompleteTextView states = findViewById(R.id.state);
+//        ArrayList<String> stateList = getStateList();
+//        ArrayAdapter
+//    }
 
     public void openStatisticDisplay(){
         Intent intent = new Intent(this, StatisticDisplay.class);
