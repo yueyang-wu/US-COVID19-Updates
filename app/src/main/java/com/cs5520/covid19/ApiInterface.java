@@ -11,7 +11,6 @@ import retrofit2.http.GET;
 
 public interface ApiInterface {
     String BASE_URL = "https://disease.sh/v3/covid-19/";
-
     //Get array of all countries
     @GET("countries")
     Call<List<ModelClass>> getCountryData();
