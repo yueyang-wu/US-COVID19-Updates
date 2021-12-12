@@ -106,7 +106,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/active"
+                            android:text="Active"
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="15sp"
@@ -134,7 +134,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/recovered"
+                            android:text="Recovered"
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="15sp"
@@ -162,7 +162,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/total"
+                            android:text="New Cases"
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="15sp"
@@ -190,7 +190,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/deaths"
+                            android:text="Deaths"
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="15sp"

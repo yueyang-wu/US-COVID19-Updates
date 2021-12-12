@@ -52,8 +52,6 @@ public class StatisticDisplay extends AppCompatActivity implements AdapterView.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistic_display);
-//        getSupportActionBar().hide();
-//        getSupportActionBar();
 
         btn_back = (Button) findViewById(R.id.btn_back);
         btn_back.setOnClickListener(new View.OnClickListener() {
@@ -67,8 +65,8 @@ public class StatisticDisplay extends AppCompatActivity implements AdapterView.O
         active = findViewById(R.id.totalactive);
         deaths = findViewById(R.id.totaldeaths);
         todayDeaths = findViewById(R.id.todaydeaths);
-        recovered = findViewById(R.id.todayrecovered);
-        todayRecovered = findViewById(R.id.totalrecovered);
+        recovered = findViewById(R.id.totalrecovered);
+        todayRecovered = findViewById(R.id.todayrecovered);
         cases = findViewById(R.id.totalcases);
         todayCases = findViewById(R.id.todaytotal);
 

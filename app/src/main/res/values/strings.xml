@@ -11,9 +11,9 @@
     <string name="homepage_vaccination_info_update_failure">Vaccination Info Update Failed!</string>
 
     <string name="active">Active Cases</string>
-    <string name="recovered">Recovered / Today Recovered</string>
-    <string name="total">Cases / Today Cases</string>
-    <string name="deaths">Deaths / Today Deaths</string>
+    <string name="recovered">Recovered | Today Recovered</string>
+    <string name="total">Cases | Today Cases</string>
+    <string name="deaths">Deaths | Today Deaths</string>
     <string name="covid_19">Covid-19</string>
     <string name="country">Country</string>
     <string name="cases">Cases</string>
