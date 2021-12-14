@@ -1,9 +1,17 @@
 package com.cs5520.covid19;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -22,6 +30,8 @@ import org.json.JSONArray;
 
 public class VaccinationFinder extends AppCompatActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
+    LocationManager locationManager;
+    Location location;
     Button btn_back;
 
 
@@ -63,12 +73,23 @@ public class VaccinationFinder extends AppCompatActivity implements OnMapReadyCa
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
+        // check and ask for user permission to share their current location
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+        }
+        // get current location
+        location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        double longitude = location.getLongitude();
+        double latitude = location.getLatitude();
+
+        // Add a marker in current location
+        LatLng currLocation = new LatLng(latitude, longitude);
         mMap.addMarker(new MarkerOptions()
-                .position(sydney)
-                .title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+                .position(currLocation)
+                .title("Your current location"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(currLocation));
     }
 }
