@@ -2,22 +2,16 @@ package com.cs5520.covid19;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -31,7 +25,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class VaccinationFinder extends AppCompatActivity implements OnMapReadyCallback {
-    private static int PROVIDER_NUMBER = 10;
+    private static int PROVIDER_NUMBER = 5;
     private GoogleMap mMap;
     LocationManager locationManager;
     Location location;
@@ -48,19 +42,13 @@ public class VaccinationFinder extends AppCompatActivity implements OnMapReadyCa
         mapFragment.getMapAsync(this);
 
         // set back_to_home button to go to home page
-//        btn_back = (Button) findViewById(R.id.back_to_home);
-//        btn_back.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(VaccinationFinder.this, HomePage.class));
-//            }
-//        });
-
-//        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-//                .findFragmentById(R.id.mapView);
-////        mapFragment.getMapAsync(this);
-//
-//        // Initialize Vaccination Provider Data
+        btn_back = (Button) findViewById(R.id.back_to_home);
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(VaccinationFinder.this, HomePage.class));
+            }
+        });
     }
 
     /**
@@ -103,7 +91,7 @@ public class VaccinationFinder extends AppCompatActivity implements OnMapReadyCa
                 JSONObject jasonObject = StatisticJsonData.providerLocation.getJSONObject(i);
                 double lat = Double.parseDouble(jasonObject.getString("latitude"));
                 double lon = Double.parseDouble(jasonObject.getString("longitude"));
-                if (lat >= latitude - 10 && lat <= latitude + 10 && lon >= longitude - 10 && lon <= longitude + 10) {
+                if (lat >= latitude - 0.5 && lat <= latitude + 0.5 && lon >= longitude - 0.5 && lon <= longitude + 0.5) {
                     String info = jasonObject.getString("loc_name");
                     LatLng providerLocation = new LatLng(lat, lon);
                     mMap.addMarker(new MarkerOptions().position(providerLocation).title(info));
