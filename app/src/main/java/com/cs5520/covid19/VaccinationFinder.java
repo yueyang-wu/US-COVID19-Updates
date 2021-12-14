@@ -27,8 +27,11 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class VaccinationFinder extends AppCompatActivity implements OnMapReadyCallback {
+    private static int PROVIDER_NUMBER = 10;
     private GoogleMap mMap;
     LocationManager locationManager;
     Location location;
@@ -82,8 +85,8 @@ public class VaccinationFinder extends AppCompatActivity implements OnMapReadyCa
         }
         // get current location
         location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        double longitude = location.getLongitude();
         double latitude = location.getLatitude();
+        double longitude = location.getLongitude();
 
         // Add a marker in current location
         LatLng currLocation = new LatLng(latitude, longitude);
@@ -91,5 +94,25 @@ public class VaccinationFinder extends AppCompatActivity implements OnMapReadyCa
                 .position(currLocation)
                 .title("Your current location"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(currLocation));
+
+
+        // get nearby vaccination provider
+        int providerDisplayed = 0, i = 0;
+        while (providerDisplayed < PROVIDER_NUMBER && i < StatisticJsonData.providerLocation.length()) {
+            try {
+                JSONObject jasonObject = StatisticJsonData.providerLocation.getJSONObject(i);
+                double lat = Double.parseDouble(jasonObject.getString("latitude"));
+                double lon = Double.parseDouble(jasonObject.getString("longitude"));
+                if (lat >= latitude - 10 && lat <= latitude + 10 && lon >= longitude - 10 && lon <= longitude + 10) {
+                    String info = jasonObject.getString("loc_name");
+                    LatLng providerLocation = new LatLng(lat, lon);
+                    mMap.addMarker(new MarkerOptions().position(providerLocation).title(info));
+                    providerDisplayed++;
+                }
+                i++;
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
