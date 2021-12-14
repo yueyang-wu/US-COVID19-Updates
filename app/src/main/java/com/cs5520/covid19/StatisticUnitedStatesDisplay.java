@@ -103,7 +103,7 @@ public class StatisticUnitedStatesDisplay extends AppCompatActivity implements A
                         stateTotalDeathsText.setText("Total Deaths: " + stateDeaths);
                         stateNewCasesText.setText("New Cases: " + stateNewCases);
                         stateNewDeathsText.setText("New Deaths: " + stateNewDeaths);
-                        stateRiskLevelText.setText("Risk Level: " + stateRiskLevel);
+                        stateRiskLevelText.setText("Risk Level (0 - 5): " + stateRiskLevel);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -157,7 +157,7 @@ public class StatisticUnitedStatesDisplay extends AppCompatActivity implements A
                         countyTotalDeathsText.setText("Total Deaths: " + countyDeaths);
                         countyNewCasesText.setText("New Cases: " + countyNewCases);
                         countyNewDeathsText.setText("New Deaths: " + countyNewDeaths);
-                        countyRiskLevelText.setText("Risk Level: " + countyRiskLevel);
+                        countyRiskLevelText.setText("Risk Level (0 - 5): " + countyRiskLevel);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
