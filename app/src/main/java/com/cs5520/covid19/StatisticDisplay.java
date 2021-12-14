@@ -1,10 +1,5 @@
 package com.cs5520.covid19;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
@@ -17,6 +12,11 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.hbb20.CountryCodePicker;
 
@@ -61,7 +61,7 @@ public class StatisticDisplay extends AppCompatActivity implements AdapterView.O
             }
         });
 
-        countryCodePicker= findViewById(R.id.ccp);
+        countryCodePicker = findViewById(R.id.ccp);
         active = findViewById(R.id.totalactive);
         deaths = findViewById(R.id.totaldeaths);
         todayDeaths = findViewById(R.id.todaydeaths);
@@ -70,12 +70,12 @@ public class StatisticDisplay extends AppCompatActivity implements AdapterView.O
         cases = findViewById(R.id.totalcases);
         todayCases = findViewById(R.id.todaytotal);
 
-        mPieChart =findViewById(R.id.piechart);
+        mPieChart = findViewById(R.id.piechart);
         spinner = findViewById(R.id.spinner);
         mFilter = findViewById(R.id.filter);
-        recyclerView=findViewById(R.id.recyclerview);
+        recyclerView = findViewById(R.id.recyclerview);
 
-        modelClassList=new ArrayList<>();
+        modelClassList = new ArrayList<>();
         modelClassList2 = new ArrayList<>();
 
         spinner.setOnItemSelectedListener(this);//parse 'this' content
@@ -100,14 +100,14 @@ public class StatisticDisplay extends AppCompatActivity implements AdapterView.O
         });
 
         //RecyclerView
-        adapter = new Adapter(getApplicationContext(),modelClassList2);
+        adapter = new Adapter(getApplicationContext(), modelClassList2);
         recyclerView.findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
         //code picker
         countryCodePicker.setAutoDetectedCountry(true);
-        country=countryCodePicker.getSelectedCountryName();
+        country = countryCodePicker.getSelectedCountryName();
 
         //if user change the country, this function will be called.
         countryCodePicker.setOnCountryChangeListener(new CountryCodePicker.OnCountryChangeListener() {
@@ -135,8 +135,8 @@ public class StatisticDisplay extends AppCompatActivity implements AdapterView.O
             public void onResponse(@NonNull Call<List<ModelClass>> call, @NonNull Response<List<ModelClass>> response) {
                 assert response.body() != null;
                 modelClassList.addAll(response.body());
-                for(int i = 0; i < modelClassList.size(); i++){
-                    if(modelClassList.get(i).getCountry().equals(country)){
+                for (int i = 0; i < modelClassList.size(); i++) {
+                    if (modelClassList.get(i).getCountry().equals(country)) {
                         active.setText((modelClassList.get(i).getActive()));
                         todayDeaths.setText((modelClassList.get(i).getTodayDeaths()));
                         todayRecovered.setText((modelClassList.get(i).getTodayRecovered()));
@@ -147,7 +147,7 @@ public class StatisticDisplay extends AppCompatActivity implements AdapterView.O
 
                         int active, total, recovered, deaths;
 
-                        active=Integer.parseInt(modelClassList.get(i).getActive());
+                        active = Integer.parseInt(modelClassList.get(i).getActive());
                         total = Integer.parseInt(modelClassList.get(i).getTodayCases());
                         recovered = Integer.parseInt(modelClassList.get(i).getRecovered());
                         deaths = Integer.parseInt(modelClassList.get(i).getDeaths());
@@ -166,8 +166,6 @@ public class StatisticDisplay extends AppCompatActivity implements AdapterView.O
         });
 
 
-
-
     }
 
     private void updateGraph(int active, int total, int recovered, int deaths) {
@@ -182,6 +180,7 @@ public class StatisticDisplay extends AppCompatActivity implements AdapterView.O
 
     /**
      * This method is used to send selection to adapter
+     *
      * @param parent
      * @param view
      * @param position, pass the index of choices in types[] = {"cases, deaths, recovered, active"};
@@ -189,9 +188,7 @@ public class StatisticDisplay extends AppCompatActivity implements AdapterView.O
      */
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String item = types[position];
-        mFilter.setText(item); //show filter with selected item
-        adapter.filter(item); //pass the item to be filtered in the adapter
+
     }
 
     @Override

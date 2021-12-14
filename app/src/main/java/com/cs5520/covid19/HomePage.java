@@ -4,23 +4,21 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.Spinner;
 import android.widget.Button;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import org.json.JSONArray;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 
 
-public class HomePage extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
-    String[] stateNames={"CA","AK","FL","NJ","OR"};
-    String[] countyNames={"Alameda","Santa Clara","County1","County2","County3"};
+public class HomePage extends AppCompatActivity {
     Button btn_vaccinationFinder;
+    Button button_us_statistic;
     private Button btn_statisticDisplay;
 
     @Override
@@ -29,26 +27,8 @@ public class HomePage extends AppCompatActivity implements AdapterView.OnItemSel
         setContentView(R.layout.activity_home_page);
 
         // Initialize StatisticJsonData
-        new requestJsonCovidStatistics().execute();
-
-
-//        //Spinner display
-//        Spinner spinState = (Spinner) findViewById(R.id.state);
-//        spinState.setOnItemSelectedListener(this);
-//        //Creating the ArrayAdapter instance having the bank name list
-//        ArrayAdapter aaState = new ArrayAdapter(this,android.R.layout.simple_spinner_item,stateNames);
-//        aaState.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        //Setting the ArrayAdapter data on the Spinner
-//        spinState.setAdapter(aaState);
-//
-//        Spinner spinCounty = (Spinner) findViewById(R.id.county);
-//        spinCounty.setOnItemSelectedListener(this);
-//        //Creating the ArrayAdapter instance having the bank name list
-//        ArrayAdapter aaCounty = new ArrayAdapter(this,android.R.layout.simple_spinner_item,countyNames);
-//        aaCounty.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        //Setting the ArrayAdapter data on the Spinner
-//        spinCounty.setAdapter(aaCounty);
-
+        if (StatisticJsonData.stateJsonArray == null || StatisticJsonData.countyJsonArray == null)
+            new requestJsonCovidStatistics().execute();
 
         // set vaccination_finder button to open VaccinationFinder activity
         btn_vaccinationFinder = (Button) findViewById(R.id.vaccination_finder);
@@ -60,40 +40,32 @@ public class HomePage extends AppCompatActivity implements AdapterView.OnItemSel
         });
         // set Statistics button on homepage to direct to information display
         btn_statisticDisplay = (Button) findViewById(R.id.homepage_seeStatistics);
-        btn_statisticDisplay.setOnClickListener(new View.OnClickListener(){
+        btn_statisticDisplay.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 openStatisticDisplay();
             }
         });
-
+        // set Statistics_UnitedStates button to open activity
+        button_us_statistic = (Button) findViewById(R.id.btn_united_states_statistic);
+        button_us_statistic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (StatisticJsonData.stateJsonArray != null && StatisticJsonData.countyJsonArray != null)
+                    startActivity(new Intent(getApplicationContext(), StatisticUnitedStatesDisplay.class));
+                else
+                    Toast.makeText(
+                            getApplicationContext(),
+                            "API data not prepared! Please wait!",
+                            Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
-//    private void initSpinner(){
-//        final AutoCompleteTextView states = findViewById(R.id.state);
-//        ArrayList<String> stateList = getStateList();
-//        ArrayAdapter
-//    }
-
-    public void openStatisticDisplay(){
+    public void openStatisticDisplay() {
         Intent intent = new Intent(this, StatisticDisplay.class);
         startActivity(intent);
     }
-
-    //Performing action onItemSelected and onNothing selected
-    @Override
-    public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
-        Toast.makeText(getApplicationContext(), stateNames[position], Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> arg0) {
-// TODO Auto-generated method stub
-
-    }
-
-
-
 
     private class requestJsonCovidStatistics extends AsyncTask<String, String, JSONArray[]> {
         /**

@@ -8,11 +8,10 @@
 
     <!--    Top part-->
     <RelativeLayout
+        android:id="@+id/topbg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id = "@+id/topbg"
-        android:background="@drawable/relativebgg"
-        >
+        android:background="@drawable/relativebgg">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,25 +39,24 @@
                     android:id="@+id/btn_back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Back"
                     android:layout_marginLeft="20dp"
                     android:layout_weight="1"
-                    android:textColor="@color/black"
                     android:backgroundTint="@color/card_bg"
-                    android:textSize="15sp"
-                    />
+                    android:text="Back"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
 
                 <com.hbb20.CountryCodePicker
+                    android:id="@+id/ccp"
                     android:layout_width="100dp"
                     android:layout_height="40dp"
-                    app:ccp_autoDetectCountry="true"
                     android:layout_marginLeft="20dp"
-                    app:ccp_showPhoneCode="false"
-                    app:ccp_showFullName="false"
+                    android:layout_marginRight="20dp"
                     android:background="@drawable/country_code_drawable"
                     android:padding="5dp"
-                    android:id="@+id/ccp"
-                    android:layout_marginRight="20dp"
+                    app:ccp_autoDetectCountry="true"
+                    app:ccp_showFullName="false"
+                    app:ccp_showPhoneCode="false"
                     app:ccp_textSize="13sp">
 
                 </com.hbb20.CountryCodePicker>
@@ -72,20 +70,19 @@
                 android:orientation="horizontal">
 
                 <org.eazegraph.lib.charts.PieChart
+                    android:id="@+id/piechart"
                     android:layout_width="220dp"
                     android:layout_height="180dp"
-                    android:id="@+id/piechart"
                     android:padding="8dp"
+                    app:egLegendTextSize="8sp"
                     app:egUsePieRotation="true"
-                    app:egValueTextSize="15sp"
-                    app:egLegendTextSize="8sp">
-                </org.eazegraph.lib.charts.PieChart>
+                    app:egValueTextSize="15sp"></org.eazegraph.lib.charts.PieChart>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -97,8 +94,8 @@
                         <View
                             android:layout_width="15dp"
                             android:layout_height="15dp"
-                            android:background="@drawable/viewbg_drawable"
                             android:layout_gravity="center"
+                            android:background="@drawable/viewbg_drawable"
                             android:backgroundTint="@color/green">
 
                         </View>
@@ -106,12 +103,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
                             android:text="Active"
                             android:textColor="@color/white"
-                            android:textStyle="bold"
                             android:textSize="15sp"
-                            android:layout_marginLeft="10dp">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
 
                     </LinearLayout>
 
@@ -125,8 +121,8 @@
                         <View
                             android:layout_width="15dp"
                             android:layout_height="15dp"
-                            android:background="@drawable/viewbg_drawable"
                             android:layout_gravity="center"
+                            android:background="@drawable/viewbg_drawable"
                             android:backgroundTint="@color/blue">
 
                         </View>
@@ -134,12 +130,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
                             android:text="Recovered"
                             android:textColor="@color/white"
-                            android:textStyle="bold"
                             android:textSize="15sp"
-                            android:layout_marginLeft="10dp">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
 
                     </LinearLayout>
 
@@ -153,8 +148,8 @@
                         <View
                             android:layout_width="15dp"
                             android:layout_height="15dp"
-                            android:background="@drawable/viewbg_drawable"
                             android:layout_gravity="center"
+                            android:background="@drawable/viewbg_drawable"
                             android:backgroundTint="@color/yellow">
 
                         </View>
@@ -162,12 +157,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
                             android:text="New Cases"
                             android:textColor="@color/white"
-                            android:textStyle="bold"
                             android:textSize="15sp"
-                            android:layout_marginLeft="10dp">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
 
                     </LinearLayout>
 
@@ -181,8 +175,8 @@
                         <View
                             android:layout_width="15dp"
                             android:layout_height="15dp"
-                            android:background="@drawable/viewbg_drawable"
                             android:layout_gravity="center"
+                            android:background="@drawable/viewbg_drawable"
                             android:backgroundTint="@color/red">
 
                         </View>
@@ -190,12 +184,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
                             android:text="Deaths"
                             android:textColor="@color/white"
-                            android:textStyle="bold"
                             android:textSize="15sp"
-                            android:layout_marginLeft="10dp">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
 
                     </LinearLayout>
 
@@ -204,7 +197,6 @@
             </LinearLayout>
 
         </LinearLayout>
-
 
 
     </RelativeLayout>
