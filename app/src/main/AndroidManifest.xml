@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.cs5520.covid19">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
 
     <application
+
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -28,6 +31,7 @@
 
         <activity
             android:name=".HomePage"
+            android:foregroundServiceType="location"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,12 +41,15 @@
         </activity>
         <activity
             android:name=".StatisticDisplay"
+            android:foregroundServiceType="location"
             android:exported="true" />
         <activity
             android:name=".VaccinationFinder"
+            android:foregroundServiceType="location"
             android:exported="true" />
         <activity
             android:name=".StatisticUnitedStatesDisplay"
+            android:foregroundServiceType="location"
             android:exported="true" />
     </application>
 

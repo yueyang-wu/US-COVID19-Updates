@@ -65,6 +65,7 @@ public class VaccinationFinder extends AppCompatActivity implements OnMapReadyCa
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        double latitude = 0, longitude = 0;
 
         // check and ask for user permission to share their current location
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
@@ -73,8 +74,11 @@ public class VaccinationFinder extends AppCompatActivity implements OnMapReadyCa
         }
         // get current location
         location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        double latitude = location.getLatitude();
-        double longitude = location.getLongitude();
+        if (location != null) {
+            latitude = location.getLatitude();
+            longitude = location.getLongitude();
+        }
+
 
         // Add a marker in current location
         LatLng currLocation = new LatLng(latitude, longitude);
