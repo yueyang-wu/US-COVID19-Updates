@@ -46,7 +46,13 @@ public class HomePage extends AppCompatActivity {
         btn_vaccinationFinder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(HomePage.this, VaccinationFinder.class));
+                if (StatisticJsonData.providerLocation != null)
+                    startActivity(new Intent(HomePage.this, VaccinationFinder.class));
+                else
+                    Toast.makeText(
+                            getApplicationContext(),
+                            "Provider data not prepared! Please wait!",
+                            Toast.LENGTH_SHORT).show();
             }
         });
         // set Statistics button on homepage to direct to information display
