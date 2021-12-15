@@ -50,7 +50,7 @@ public class HomePage extends AppCompatActivity implements AdapterView.OnItemSel
 //        spinCounty.setAdapter(aaCounty);
 
 
-        // set vaccination_finder button to open VaccinationFinder activity
+        // set vaccination_finder button to open VaccinationFinder/GoogleMap activity
         btn_vaccinationFinder = (Button) findViewById(R.id.vaccination_finder);
         btn_vaccinationFinder.setOnClickListener(new View.OnClickListener() {
             @Override

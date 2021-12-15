@@ -21,5 +21,6 @@
     <string name="number">2323236544</string>
     <string name="test">Test</string>
     <string name="covid_19_case_tracker">COVID-19 Case Tracker</string>
+    <string name="title_activity_maps">MapsActivity</string>
 
 </resources>
