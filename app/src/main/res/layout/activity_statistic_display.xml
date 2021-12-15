@@ -8,11 +8,10 @@
 
     <!--    Top part-->
     <RelativeLayout
+        android:id="@+id/topbg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id = "@+id/topbg"
-        android:background="@drawable/relativebgg"
-        >
+        android:background="@drawable/relativebgg">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,25 +39,24 @@
                     android:id="@+id/btn_back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Back"
                     android:layout_marginLeft="20dp"
                     android:layout_weight="1"
-                    android:textColor="@color/black"
                     android:backgroundTint="@color/card_bg"
-                    android:textSize="15sp"
-                    />
+                    android:text="Back"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
 
                 <com.hbb20.CountryCodePicker
+                    android:id="@+id/ccp"
                     android:layout_width="100dp"
                     android:layout_height="40dp"
-                    app:ccp_autoDetectCountry="true"
                     android:layout_marginLeft="20dp"
-                    app:ccp_showPhoneCode="false"
-                    app:ccp_showFullName="false"
+                    android:layout_marginRight="20dp"
                     android:background="@drawable/country_code_drawable"
                     android:padding="5dp"
-                    android:id="@+id/ccp"
-                    android:layout_marginRight="20dp"
+                    app:ccp_autoDetectCountry="true"
+                    app:ccp_showFullName="false"
+                    app:ccp_showPhoneCode="false"
                     app:ccp_textSize="13sp">
 
                 </com.hbb20.CountryCodePicker>
@@ -72,20 +70,19 @@
                 android:orientation="horizontal">
 
                 <org.eazegraph.lib.charts.PieChart
+                    android:id="@+id/piechart"
                     android:layout_width="220dp"
                     android:layout_height="180dp"
-                    android:id="@+id/piechart"
                     android:padding="8dp"
+                    app:egLegendTextSize="8sp"
                     app:egUsePieRotation="true"
-                    app:egValueTextSize="15sp"
-                    app:egLegendTextSize="8sp">
-                </org.eazegraph.lib.charts.PieChart>
+                    app:egValueTextSize="15sp"></org.eazegraph.lib.charts.PieChart>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -97,8 +94,8 @@
                         <View
                             android:layout_width="15dp"
                             android:layout_height="15dp"
-                            android:background="@drawable/viewbg_drawable"
                             android:layout_gravity="center"
+                            android:background="@drawable/viewbg_drawable"
                             android:backgroundTint="@color/green">
 
                         </View>
@@ -106,12 +103,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
                             android:text="Active"
                             android:textColor="@color/white"
-                            android:textStyle="bold"
                             android:textSize="15sp"
-                            android:layout_marginLeft="10dp">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
 
                     </LinearLayout>
 
@@ -125,8 +121,8 @@
                         <View
                             android:layout_width="15dp"
                             android:layout_height="15dp"
-                            android:background="@drawable/viewbg_drawable"
                             android:layout_gravity="center"
+                            android:background="@drawable/viewbg_drawable"
                             android:backgroundTint="@color/blue">
 
                         </View>
@@ -134,12 +130,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
                             android:text="Recovered"
                             android:textColor="@color/white"
-                            android:textStyle="bold"
                             android:textSize="15sp"
-                            android:layout_marginLeft="10dp">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
 
                     </LinearLayout>
 
@@ -153,8 +148,8 @@
                         <View
                             android:layout_width="15dp"
                             android:layout_height="15dp"
-                            android:background="@drawable/viewbg_drawable"
                             android:layout_gravity="center"
+                            android:background="@drawable/viewbg_drawable"
                             android:backgroundTint="@color/yellow">
 
                         </View>
@@ -162,12 +157,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
                             android:text="New Cases"
                             android:textColor="@color/white"
-                            android:textStyle="bold"
                             android:textSize="15sp"
-                            android:layout_marginLeft="10dp">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
 
                     </LinearLayout>
 
@@ -181,8 +175,8 @@
                         <View
                             android:layout_width="15dp"
                             android:layout_height="15dp"
-                            android:background="@drawable/viewbg_drawable"
                             android:layout_gravity="center"
+                            android:background="@drawable/viewbg_drawable"
                             android:backgroundTint="@color/red">
 
                         </View>
@@ -190,12 +184,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
                             android:text="Deaths"
                             android:textColor="@color/white"
-                            android:textStyle="bold"
                             android:textSize="15sp"
-                            android:layout_marginLeft="10dp">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
 
                     </LinearLayout>
 
@@ -206,31 +199,30 @@
         </LinearLayout>
 
 
-
     </RelativeLayout>
 
     <!--    Middle part-->
     <RelativeLayout
+        android:id="@+id/middlebg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:id="@+id/middlebg"
         android:layout_below="@id/topbg"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="5dp"
+        android:gravity="center">
 
         <GridLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:columnCount = "2"
+            android:columnCount="2"
             android:padding="5dp"
-            android:useDefaultMargins = "true">
+            android:useDefaultMargins="true">
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="160dp"
                 android:layout_height="60dp"
-                app:strokeWidth="2dp"
                 android:backgroundTint="@color/card_bg"
-                app:strokeColor="#0c0F45">
+                app:strokeColor="#0c0F45"
+                app:strokeWidth="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -240,8 +232,8 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
                         android:orientation="horizontal">
 
                         <View
@@ -249,38 +241,36 @@
                             android:layout_height="15dp"
                             android:layout_gravity="center"
                             android:background="@drawable/viewbg_drawable"
-                            android:backgroundTint = "@color/yellow">
-                        </View>
+                            android:backgroundTint="@color/yellow"></View>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
                             android:text="@string/total"
                             android:textSize="10sp"
-                            android:textStyle="bold"
-                            android:layout_marginLeft="10dp"
-                            android:layout_gravity="center">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:layout_marginLeft="5dp"
-                        android:padding="5dp"
-                        android:orientation="horizontal">
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
 
                         <TextView
+                            android:id="@+id/totalcases"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="12sp"
+                            android:layout_weight="1"
                             android:text="@string/number"
-                            android:id="@+id/totalcases"
                             android:textColor="@color/black"
-                            android:layout_weight="1">
+                            android:textSize="12sp"
+                            android:textStyle="bold">
 
                         </TextView>
 
@@ -306,9 +296,9 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="160dp"
                 android:layout_height="60dp"
-                app:strokeWidth="2dp"
                 android:backgroundTint="@color/card_bg"
-                app:strokeColor="#0c0F45">
+                app:strokeColor="#0c0F45"
+                app:strokeWidth="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -318,8 +308,8 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
                         android:orientation="horizontal">
 
                         <View
@@ -327,40 +317,38 @@
                             android:layout_height="15dp"
                             android:layout_gravity="center"
                             android:background="@drawable/viewbg_drawable"
-                            android:backgroundTint = "@color/green">
-                        </View>
+                            android:backgroundTint="@color/green"></View>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
                             android:text="@string/active"
                             android:textSize="10sp"
-                            android:textStyle="bold"
-                            android:layout_marginLeft="10dp"
-                            android:layout_gravity="center">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:layout_marginLeft="5dp"
-                        android:padding="5dp"
-                        android:orientation="horizontal">
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
 
                         <TextView
+                            android:id="@+id/totalactive"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="12sp"
-                            android:text="@string/number"
-                            android:id="@+id/totalactive"
+                            android:layout_weight="1"
                             android:gravity="center
 "
+                            android:text="@string/number"
                             android:textColor="@color/black"
-                            android:layout_weight="1">
+                            android:textSize="12sp"
+                            android:textStyle="bold">
 
                         </TextView>
 
@@ -373,9 +361,9 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="160dp"
                 android:layout_height="60dp"
-                app:strokeWidth="2dp"
                 android:backgroundTint="@color/card_bg"
-                app:strokeColor = "#0c0F45">
+                app:strokeColor="#0c0F45"
+                app:strokeWidth="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -385,8 +373,8 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
                         android:orientation="horizontal">
 
                         <View
@@ -394,18 +382,16 @@
                             android:layout_height="15dp"
                             android:layout_gravity="center"
                             android:background="@drawable/viewbg_drawable"
-                            android:backgroundTint = "@color/blue">
-                        </View>
+                            android:backgroundTint="@color/blue"></View>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
                             android:text="@string/recovered"
                             android:textSize="10sp"
-                            android:textStyle="bold"
-                            android:layout_marginLeft="10dp"
-                            android:layout_gravity="center">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
 
                     </LinearLayout>
 
@@ -413,33 +399,33 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:layout_marginLeft="5dp"
-                        android:padding="5dp"
-                        android:orientation="horizontal">
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
 
                         <TextView
+                            android:id="@+id/totalrecovered"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="12sp"
+                            android:layout_weight="1"
                             android:text="@string/number"
-                            android:id="@+id/totalrecovered"
                             android:textColor="@color/black"
-                            android:layout_weight="1">
+                            android:textSize="12sp"
+                            android:textStyle="bold">
 
                         </TextView>
 
                         <TextView
+                            android:id="@+id/todayrecovered"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="10sp"
-                            android:text="@string/number"
-                            android:id="@+id/todayrecovered"
-                            android:textColor="@color/black"
                             android:layout_marginLeft="5dp"
-                            android:layout_weight="1">
+                            android:layout_weight="1"
+                            android:text="@string/number"
+                            android:textColor="@color/black"
+                            android:textSize="10sp"
+                            android:textStyle="bold">
 
                         </TextView>
                     </LinearLayout>
@@ -450,9 +436,9 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="160dp"
                 android:layout_height="60dp"
-                app:strokeWidth="2dp"
                 android:backgroundTint="@color/card_bg"
-                app:strokeColor = "#0c0F45">
+                app:strokeColor="#0c0F45"
+                app:strokeWidth="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -462,8 +448,8 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
                         android:orientation="horizontal">
 
                         <View
@@ -471,18 +457,16 @@
                             android:layout_height="15dp"
                             android:layout_gravity="center"
                             android:background="@drawable/viewbg_drawable"
-                            android:backgroundTint = "@color/red">
-                        </View>
+                            android:backgroundTint="@color/red"></View>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
                             android:text="@string/deaths"
                             android:textSize="10sp"
-                            android:textStyle="bold"
-                            android:layout_marginLeft="10dp"
-                            android:layout_gravity="center">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
 
                     </LinearLayout>
 
@@ -490,33 +474,33 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:layout_marginLeft="5dp"
-                        android:padding="5dp"
-                        android:orientation="horizontal">
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
 
                         <TextView
+                            android:id="@+id/totaldeaths"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="12sp"
+                            android:layout_weight="1"
                             android:text="@string/number"
-                            android:id="@+id/totaldeaths"
                             android:textColor="@color/black"
-                            android:layout_weight="1">
+                            android:textSize="12sp"
+                            android:textStyle="bold">
 
                         </TextView>
 
                         <TextView
+                            android:id="@+id/todaydeaths"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="10sp"
-                            android:text="@string/number"
-                            android:id="@+id/todaydeaths"
-                            android:textColor="@color/black"
                             android:layout_marginLeft="5dp"
-                            android:layout_weight="1">
+                            android:layout_weight="1"
+                            android:text="@string/number"
+                            android:textColor="@color/black"
+                            android:textSize="10sp"
+                            android:textStyle="bold">
 
                         </TextView>
 
@@ -536,8 +520,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/middlebg"
-        android:background="@drawable/relativebg"
         android:layout_marginTop="5dp"
+        android:background="@drawable/relativebg"
         android:orientation="vertical">
 
         <LinearLayout
@@ -559,6 +543,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/filter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -568,7 +553,6 @@
                 android:text="@string/cases"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:id="@+id/filter"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
