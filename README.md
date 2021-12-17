@@ -11,7 +11,7 @@ This Android application displays updated Covid19 case data around the world and
 - Get user's current location and show nearby vaccination providers on Google Map
 
 ## Project Layout
-![Home Page](https://drive.google.com/file/d/1XyrgNwWBmneuVoclCLVV7O4s4Y9KKtXW/view?usp=sharing)
+![Home Page](https://drive.google.com/uc?export=view&id=1XyrgNwWBmneuVoclCLVV7O4s4Y9KKtXW)
 ![US Statistics](https://drive.google.com/file/d/1bhOSUF5r7PkzByw2l09bTnb1GbwJFAPz/view?usp=sharing)
 ![World Statistics](https://drive.google.com/file/d/1PbE5aJeLDz56FMgChfCMDwJVipl0xRNh/view?usp=sharing)
 ![Nearby Vaccination Providers](https://drive.google.com/file/d/1XyrgNwWBmneuVoclCLVV7O4s4Y9KKtXW/view?usp=sharing)
