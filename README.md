@@ -21,4 +21,5 @@ This Android application displays updated Covid19 case data around the world and
     - git clone current project and open with Android Studio
     - run on a virtual device in Android Studio (prefer API 28 or lower)
 - Option 2
-    - download the apk file, install and run on a physical Android device
+    - download the apk file from https://drive.google.com/file/d/16i1VlyobnVKfSBfDXkJDMuBj8JjcRhMM/view?usp=sharing
+    - install and run on a physical Android device
